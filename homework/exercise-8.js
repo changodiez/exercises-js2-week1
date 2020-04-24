@@ -100,45 +100,9 @@ var mentors = [{
       }
     }
   },
-  /*
-  {
-    addSkill: function (name, lastname, skill) {
-      for (i = 0; i < mentors; i++) {
-        if (mentors[i].name === [name] && mentors[i].lastname) {
-         return mentors[i].skill.push(skill);
-        }
-      }
-    },*/
+  
 ];
 
-//YOUR CODE HERE
-
-for (i = 0; i < mentors.length; i++) {
-  if (mentors[i].job.city == "Barcelona" && mentors[i].skills.includes("React")) {
-    console.log("Hi, my name is " + mentors[i].firstName + " " + mentors[i].lastName + ". I work in Barcelona and i know React.")
-  }
-
-};
-/*
-2. To those that work in Barcelona, set "Jun1" in the class attribute, 
-and add a new skill to the list "SQL".
-To add elements in an array you can use .push()
-var animals = ["dog","cat"];
-animals.push("horse"); //["dog","cat","horse"]*/
-for (i = 0; i < mentors.length; i++) {
-  if (mentors[i].job.city == "Barcelona") {
-    mentors[i].class = "Jun1";
-    mentors[i].skills.push("SQL");
-    console.log(mentors[i]);
-  }
-
-};
-/*
-
-},
-
-
-];
 
 //YOUR CODE HERE
 
@@ -162,7 +126,7 @@ if (mentors[i].job.city == "Barcelona") {
 
 };
 
-// /*3 -
-/*
+// 3 -
+
 mentors.addSkill(Antonio, Miranda, PHP);
-console.log(mentors[0]);*/
+console.log(mentors[0]);
