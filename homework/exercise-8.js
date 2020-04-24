@@ -65,6 +65,9 @@ var mentors = [{
       company: "FC Barcelona",
       position: "Player",
       city: "Barcelona"
+    },
+    addStudentLikes: function(){
+      this.studentLikes = studentLikes + valueIncres;
     }
   },
   {
@@ -131,10 +134,20 @@ function getIndexMoreSkills(arrSkills) {
 
 indexName = getIndexMoreSkills(arrSkills);
 
+
+function addStudentLikes(mentors,valueIncres){
+  for (i = 0; i < mentors.length; i++){
+    mentors[i].studentLikes += valueIncres
+  }
+ 
+}
+
+
 //YOUR CODE HERE
 
-/*
+
 // 1 -
+console.log("Exercise 1")
 
 for (i = 0; i < mentors.length; i++) {
   if (mentors[i].job.city === "Barcelona" && mentors[i].skills.includes("React")) {
@@ -143,7 +156,8 @@ for (i = 0; i < mentors.length; i++) {
 
 };
 // 2- 
-/*
+console.log("Exercise 2")
+
 
 for (i = 0; i < mentors.length; i++) {
   if (mentors[i].job.city == "Barcelona") {
@@ -156,18 +170,27 @@ for (i = 0; i < mentors.length; i++) {
 
 // 3 -
 // 4 -
+console.log("Exercise 4")
 console.log("ADD SKILL PHP")
 addSkill(mentors, "PHP");
 console.log(mentors[0]);
 
+console.log("Exercise 5")
 console.log("NOW REMOVE PHP")
 
 removeSkill(mentors, "PHP");
 console.log(mentors[0]);
-*/
+
 /////////////////////////////
 // 6 -
+console.log("Exercise 6")
 MentorWhitMoreSkills = "The mentor whit more skills is " + mentors[indexName].firstName + " " + mentors[indexName].lastName;
 console.log(MentorWhitMoreSkills);
 
 // 7 -
+
+//8 -
+console.log("Exercise 8")
+console.log("likes before function " + mentors[1].studentLikes)
+addStudentLikes(mentors, 2);
+console.log("likes after function " + mentors[1].studentLikes)
