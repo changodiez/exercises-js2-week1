@@ -25,11 +25,19 @@ WRITE YOUR CODE BELOW
 */
 
 
-var persons = // Complete here
+var persons = [person1, person2, person3]; // Complete here
 
-var personNames = // Complete here
+function getName(persons){
+    return persons.name;
+}
+var personNames = persons.map(getName);// Complete here
 
-var personsYoungerThan28YearsOld = // Complete here
+
+function YoungerThan28YearsOld(persons) {
+    return persons.age < 28;
+}
+
+var personsYoungerThan28YearsOld = persons.filter(YoungerThan28YearsOld) ;// Complete here
 
 
 /*

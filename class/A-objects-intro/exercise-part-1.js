@@ -17,3 +17,31 @@ var car = {
 
 */
 
+var beer = {
+    brand: "Ritual",
+    type: "Pale Larger",
+    AlcVol: 5.7,
+    color: "gold",
+    IBU: 50,
+}
+
+var smartphone = {
+    Brand: "Xiaomi",
+    Model: "Note 7",
+    HDscreen: true,
+    ForceTouch: true,
+    Rom: 32, // + "Gb",
+    Ram: 4, // + "Gb",
+    HDcam: true,
+
+
+}
+
+var user = {
+    firstName: "Joaquin",
+    lastName: "Diez",
+    age: 29,
+    Bday: 14/03/91,
+
+
+}
