@@ -91,42 +91,83 @@ var mentors = [{
       city: "Barcelona"
     }
   },
-  {
-    addSkill: function (name, lastname, skill) {
-      for (i = 0; i < mentors; i++) {
-        if (mentors[i].name === [name] && mentors[i].lastname) {
-          return mentors[i].skill.push(skill);
-        }
-      }
-    }
-  },
-  
 ];
 
+function addSkill(mentors, newSkill) {
+  //your code here
+  for (i = 0; i < mentors.length; i++) {
+    mentors[i].skills.push(newSkill);
+  };
+}
+
+function removeSkill(mentors, newSkill) {
+  //your code here
+  for (i = 0; i < mentors.length; i++) {
+    mentors[i].skills.pop(newSkill);
+  }
+}
+///////////////
+// Create a array of skills.lengt
+function getSkills(mentors) {
+  arrSkills = [];
+  for (i = 0; i < mentors.length; i++) {
+    arrSkills.push(mentors[i].skills.length)
+  }
+  return arrSkills;
+}
+arrSkills = getSkills(mentors)
+
+// Serch the bigest, and get de index of it 
+function getIndexMoreSkills(arrSkills) {
+  maxNum = 0;
+  for (i = 0; i < arrSkills.length; i++) {
+    if (arrSkills[i] > arrSkills[maxNum]) {
+      maxNum = arrSkills[i]
+      indexName = i;
+    }
+  }
+  return indexName;
+}
+
+indexName = getIndexMoreSkills(arrSkills);
 
 //YOUR CODE HERE
 
-console.log(mentors[0].job.city)
+/*
 // 1 -
 
 for (i = 0; i < mentors.length; i++) {
-if (mentors[i].job.city === "Barcelona" && mentors[i].skills.includes("React")) {
-  console.log("Hi, my name is " + mentors[i].firstName + " " + mentors[i].lastName + ". I work in Barcelona and i know React.")
-}
+  if (mentors[i].job.city === "Barcelona" && mentors[i].skills.includes("React")) {
+    console.log("Hi, my name is " + mentors[i].firstName + " " + mentors[i].lastName + ". I work in Barcelona and i know React.")
+  }
 
 };
 // 2- 
+/*
 
 for (i = 0; i < mentors.length; i++) {
-if (mentors[i].job.city == "Barcelona") {
-  mentors[i].class = "Jun1";
-  mentors[i].skills.push("SQL");
-  console.log(mentors[i]);
-}
+  if (mentors[i].job.city == "Barcelona") {
+    mentors[i].class = "Jun1";
+    mentors[i].skills.push("SQL");
+    console.log(mentors[i]);
+  }
 
 };
 
 // 3 -
-
-mentors.addSkill(Antonio, Miranda, PHP);
+// 4 -
+console.log("ADD SKILL PHP")
+addSkill(mentors, "PHP");
 console.log(mentors[0]);
+
+console.log("NOW REMOVE PHP")
+
+removeSkill(mentors, "PHP");
+console.log(mentors[0]);
+*/
+/////////////////////////////
+// 6 -
+MentorWhitMoreSkills = "The mentor whit more skills is " + mentors[indexName].firstName + " " + mentors[indexName].lastName;
+console.log(MentorWhitMoreSkills);
+
+// 7 -
