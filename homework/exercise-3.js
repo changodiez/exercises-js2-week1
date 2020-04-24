@@ -15,12 +15,19 @@ var coffeeMachine = {
         blackCoffee: 1.50,
         flatWhite: 3.00
     },
+   
     insertedAmount: 0,
+    
     insertMoney: function(amount) {
+        
+return  this.insertedAmount = amount;
 
     },
     getCoffee: function(coffee) {
-
+        if (this.insertedAmount >= this.prices[coffee]) {
+            return "Please take your " + coffee ;
+        }
+        return "Sorry you don't have enough money for a " + coffee;
     }
 };
 

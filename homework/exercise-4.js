@@ -55,20 +55,48 @@ WRITE YOUR CODE BELOW
 */
 
 
+
+
+
 var restaurantFinderApplication = {
     applicationName: "Restaurant Finder",
     applicationVersion: "1.0",
     restaurants: restaurants,
-    findAvailableRestaurants: function(numberOfPeople) {
+    findAvailableRestaurants: function (numberOfPeople) {
         // Complete here
+        var AvaibleRestaurants = [];
+
+        for (i = 0; i < restaurants.length; i++) {
+
+            if (restaurants[i].totalSeats - restaurants[i].numberOfCustomers >= numberOfPeople) {
+                AvaibleRestaurants.push(restaurants[i].name);
+            }
+        }
+        return AvaibleRestaurants;
     },
-    findRestaurantServingDish: function(dishName) {
+    findRestaurantServingDish: function (dishName) {
         // Complete here
+        var AvaibleDish = [];
+        for (i = 0; i < restaurants.length; i++) {
+            if (restaurants[i].menu.includes(dishName)) {
+                AvaibleDish.push(restaurants[i].name);
+            }
+        }
+        return AvaibleDish;
     },
-    countNumberOfRestaurantsInArea: function(area) {
+    countNumberOfRestaurantsInArea: function (area) {
         // Complete here
+        var AvaibleRestaurantInArea = 0;
+        for (i = 0; i < restaurants.length; i++) {
+            if (restaurants[i].address.area == [area]) {
+                AvaibleRestaurantInArea ++;
+            }
+        }
+        
+        return AvaibleRestaurantInArea;
     }
 };
+
 
 
 /*
