@@ -66,7 +66,7 @@ var mentors = [{
       position: "Player",
       city: "Barcelona"
     },
-    addStudentLikes: function(){
+    addStudentLikes: function () {
       this.studentLikes = studentLikes + valueIncres;
     }
   },
@@ -94,57 +94,19 @@ var mentors = [{
       city: "Barcelona"
     }
   },
-];
-
-function addSkill(mentors, newSkill) {
-  //your code here
-  for (i = 0; i < mentors.length; i++) {
-    mentors[i].skills.push(newSkill);
-  };
-}
-
-function removeSkill(mentors, newSkill) {
-  //your code here
-  for (i = 0; i < mentors.length; i++) {
-    mentors[i].skills.pop(newSkill);
-  }
-}
-///////////////
-// Create a array of skills.lengt
-function getSkills(mentors) {
-  arrSkills = [];
-  for (i = 0; i < mentors.length; i++) {
-    arrSkills.push(mentors[i].skills.length)
-  }
-  return arrSkills;
-}
-arrSkills = getSkills(mentors)
-
-// Serch the bigest, and get de index of it 
-function getIndexMoreSkills(arrSkills) {
-  maxNum = 0;
-  for (i = 0; i < arrSkills.length; i++) {
-    if (arrSkills[i] > arrSkills[maxNum]) {
-      maxNum = arrSkills[i]
-      indexName = i;
+  {
+    addSkill: function (mentors, newSkill) {
+      for (i = 0; i < mentors.length; i++) {
+        this[i].skills.push(newSkill);
+      }
     }
   }
-  return indexName;
-}
-
-indexName = getIndexMoreSkills(arrSkills);
+];
 
 
-function addStudentLikes(mentors,valueIncres){
-  for (i = 0; i < mentors.length; i++){
-    mentors[i].studentLikes += valueIncres
-  }
- 
-}
 
 
-//YOUR CODE HERE
-
+//YOUR CODE HERE  ///////////////////// MY CODE ////////////////////////////////////////////7
 
 // 1 -
 console.log("Exercise 1")
@@ -169,11 +131,36 @@ for (i = 0; i < mentors.length; i++) {
 };
 
 // 3 -
+var myMethods = {
+  removeSkill: function (mentors, newSkill) {
+    for (i = 0; i < mentors.length; i++) {
+      this[i].skills.pop(newSkill);
+    }
+  }
+}
+
 // 4 -
+
+function addSkill(mentors, newSkill) {
+  for (i = 0; i < mentors.length; i++) {
+    mentors[i].skills.push(newSkill);
+  };
+}
+
 console.log("Exercise 4")
 console.log("ADD SKILL PHP")
 addSkill(mentors, "PHP");
 console.log(mentors[0]);
+
+
+// 5 -
+
+function removeSkill(mentors, newSkill) {
+  //your code here
+  for (i = 0; i < mentors.length; i++) {
+    mentors[i].skills.pop(newSkill);
+  }
+}
 
 console.log("Exercise 5")
 console.log("NOW REMOVE PHP")
@@ -183,14 +170,56 @@ console.log(mentors[0]);
 
 /////////////////////////////
 // 6 -
+
+
+function getNameMentorMoreSkills(mentors) {
+  // Create a array of skills.lengt
+  function getSkills(mentors) {
+    arrSkills = [];
+    for (i = 0; i < mentors.length; i++) {
+      arrSkills.push(mentors[i].skills.length)
+    }
+    return arrSkills;
+  }
+  arrSkills = getSkills(mentors)
+
+  // Serch the bigest, and get de index of it 
+  function getIndexMoreSkills(arrSkills) {
+    maxNum = 0;
+    index = 0;
+    for (i = 0; i < arrSkills.length; i++) {
+      if (arrSkills[i] > arrSkills[maxNum]) {
+        maxNum = arrSkills[i]
+        index = i;
+      }
+      return index;
+    }
+  }
+
+  indexName = getIndexMoreSkills(arrSkills);
+  return mentors[indexName].firstName + " " + mentors[indexName].lastName;
+}
+
+
 console.log("Exercise 6")
-MentorWhitMoreSkills = "The mentor whit more skills is " + mentors[indexName].firstName + " " + mentors[indexName].lastName;
+MentorWhitMoreSkills = "The mentor whit more skills is " + getNameMentorMoreSkills(mentors) ;
 console.log(MentorWhitMoreSkills);
 
 // 7 -
+console.log("Exercise 7")
+function addStudentLikes(mentors, valueIncres) {
+  for (i = 0; i < mentors.length; i++) {
+    mentors[i].studentLikes += valueIncres
+  }
+
+}
 
 //8 -
 console.log("Exercise 8")
-console.log("likes before function " + mentors[1].studentLikes)
+/// get random index just for verification 
+randomindex = Math.round(Math.random() * mentors.length);
+
+console.log("likes before function " + mentors[randomindex].studentLikes)
 addStudentLikes(mentors, 2);
-console.log("likes after function " + mentors[1].studentLikes)
+console.log("likes after function " + mentors[randomindex].studentLikes)
+
