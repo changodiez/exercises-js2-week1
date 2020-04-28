@@ -94,13 +94,6 @@ var mentors = [{
       city: "Barcelona"
     }
   },
-  {
-    addSkill: function (mentors, newSkill) {
-      for (i = 0; i < mentors.length; i++) {
-        this[i].skills.push(newSkill);
-      }
-    }
-  }
 ];
 
 
@@ -131,14 +124,6 @@ for (i = 0; i < mentors.length; i++) {
 };
 
 // 3 -
-var myMethods = {
-  removeSkill: function (mentors, newSkill) {
-    for (i = 0; i < mentors.length; i++) {
-      this[i].skills.pop(newSkill);
-    }
-  }
-}
-
 // 4 -
 
 function addSkill(mentors, newSkill) {

@@ -33,7 +33,7 @@ var product1 = {
   id: 1,
   name: "Toaster X56 Plus",
   price: 12.98,
-  stock: 105
+  stock: 0
 };
 var product2 = {
   id: 2,
@@ -55,38 +55,64 @@ var product4 = {
 };
 
 products.push(product1);
-/*
+products.push(product2);
+products.push(product3);
+products.push(product4);
+
 var shoppingCart = {
   totalPrice: 0,
-  selectedProducts = []
+  selectedProducts: [],
 };
-*/
-var allproducts = []
 
-function getArrayProducts(myArray) {
-  for (i = 1; i < 100; i++) {
-    const product = eval("product" + i);
-    if (typeof product === "undefined" || undefined || false || null) break;
-    products.push(product);
+function addToShoppingCart(id) {
+  //Create a function addToShoppingCart to add a product to the shopping cart list giving the product id,
+  //the function will add the product to the selectedProduct list, and add the price to the totalPrice
+  for (i = 0; i < products.length; i++) {
+
+    if (id === products[i].id) {
+      if (products[i].stock > 0) {
+        shoppingCart.totalPrice = shoppingCart.totalPrice += products[i].price,
+          shoppingCart.selectedProducts.push(products[i]),
+          products[i].stock--;
+      } else {console.log("Product out of stock")}
+    }
   }
 
 
 }
 
-allproducts = getArrayProducts(allproducts);
-console.log(allproducts);
-/*
-function addToShoppingCart(id) {
-  //Create a function addToShoppingCart to add a product to the shopping cart list giving the product id,
-  //the function will add the product to the selectedProduct list, and add the price to the totalPrice
-
+function removeFromShoppingCart(id) {
+  for (i = 0; i < shoppingCart.selectedProducts.length; i++) {
+    if (id === shoppingCart.selectedProducts[i].id) {
+      shoppingCart.totalPrice = shoppingCart.totalPrice -= shoppingCart.selectedProducts[i].price,
+        shoppingCart.selectedProducts.splice(i, 1),
+        products[i].stock++;
+    }
+  }
 }
 
-function removeFromShoppingCart(id) {
-
+function getProduct(id) {
+  for (var i = 0; i < products.length; i++) {
+    var product = products[i];
+    if (product.id === id) {
+      return product;
+    }
+  }
 }
 
 function shop() {
+  var selectedProducts = shoppingCart.selectedProducts;
+  // Loop through all the selected products
+  for (var i = 0; i < selectedProducts.length; i++) {
+    var selectedProduct = selectedProducts[i];
+    // Get the product from the products array using the id
+    var product = getProduct(selectedProduct.id);
+    // Decrease the stock by 1
+    product.stock--;
+  }
+  // Reset the shopping cart variables because it's now empty
+  shoppingCart.selectedProducts = [];
+  shoppingCart.totalPrice = 0;
 
 }
 
@@ -96,6 +122,7 @@ console.log("Step 1");
 console.log("Total Price = " + shoppingCart.totalPrice);
 console.log("Number of Elements = " + shoppingCart.selectedProducts.length);
 console.log("Name of Elements = " + shoppingCart.selectedProducts.map(p => p.name));
+console.log(shoppingCart.selectedProducts)
 addToShoppingCart(2);
 console.log("Step 2");
 console.log("Total Price = " + shoppingCart.totalPrice);
@@ -106,13 +133,15 @@ console.log("Step 3");
 console.log("Total Price = " + shoppingCart.totalPrice);
 console.log("Number of Elements = " + shoppingCart.selectedProducts.length);
 console.log("Name of Elements = " + shoppingCart.selectedProducts.map(p => p.name));
+console.log(shoppingCart.selectedProducts)
 removeFromShoppingCart(2);
 console.log("Step 4");
 console.log("Total Price = " + shoppingCart.totalPrice);
 console.log("Number of Elements = " + shoppingCart.selectedProducts.length);
 console.log("Name of Elements = " + shoppingCart.selectedProducts.map(p => p.name));
+console.log(shoppingCart.selectedProducts)
 shop();
 console.log("Step 5");
 console.log("Total Price = " + shoppingCart.totalPrice);
 console.log("Number of Elements = " + shoppingCart.selectedProducts.length);
-console.log("Name of Elements = " + shoppingCart.selectedProducts.map(p => p.name));*/
+console.log("Name of Elements = " + shoppingCart.selectedProducts.map(p => p.name));
